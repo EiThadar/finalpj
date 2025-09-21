@@ -355,6 +355,11 @@ body {
     transform-style: preserve-3d;
     touch-action: manipulation;
     position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    caret-color: transparent;
 }
 
 .card::before {
