@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+    <title>Flower Garden Memory Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Developer Info Banner -->
+    <div class="developer-info">
+        <span>Developed by: Ei Thadar Aung | Student ID: 240702401928</span>
+    </div>
+
+    <!-- Main Game Container -->
+    <div class="game-container">
+        <!-- Main Screen -->
+        <div id="main-screen" class="screen active">
+            <h1 class="title">🌸 Flower Match 🌸</h1>
+            <p class="subtitle">Find matching pairs of beautiful flowers!</p>
+            <div class="flower-decoration">
+                <div class="flower large rotate"></div>
+                <div class="flower medium"></div>
+                <div class="flower small rotate reverse"></div>
+            </div>
+            <button class="btn btn-primary" onclick="showScreen('difficulty-screen')">Start Game</button>
+            <button class="btn btn-secondary" onclick="showScreen('instructions-screen')">How to Play</button>
+        </div>
+
+        <!-- Difficulty Selection Screen -->
+        <div id="difficulty-screen" class="screen">
+            <button class="btn btn-back" onclick="showScreen('main-screen')">← Back</button>
+            <h2 class="title">Choose Difficulty</h2>
+            <div class="difficulty-options">
+                <button class="difficulty-btn easy" onclick="startGame('easy')">
+                    <span class="flower-icon">🌼</span>
+                    Easy (4×4)
+                </button>
+                <button class="difficulty-btn medium" onclick="startGame('medium')">
+                    <span class="flower-icon">🌺</span>
+                    Medium (4×5)
+                </button>
+                <button class="difficulty-btn hard" onclick="startGame('hard')">
+                    <span class="flower-icon">🌹</span>
+                    Hard (5×6)
+                </button>
+            </div>
+        </div>
+
+        <!-- Instructions Screen -->
+        <div id="instructions-screen" class="screen">
+            <button class="btn btn-back" onclick="showScreen('main-screen')">← Back</button>
+            <h2 class="title">How to Play</h2>
+            <div class="instructions-content">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <p>Tap on cards to reveal flowers</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <p>Find matching pairs of the same flowers</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <p>Complete the board with the fewest moves</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <p>Enjoy the beautiful flower garden you create!</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="showScreen('difficulty-screen')">Play Now</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <button class="btn btn-back" onclick="quitGame()">← Menu</button>
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Moves</span>
+                        <span id="move-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Pairs</span>
+                        <span id="pair-count" class="stat-value">0/8</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time</span>
+                        <span id="timer" class="stat-value">0s</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="game-grid" class="game-grid"></div>
+            
+            <div class="game-controls">
+                <button class="btn btn-secondary" onclick="restartGame()">Restart</button>
+                <button class="btn btn-primary" onclick="hint()">Hint</button>
+            </div>
+        </div>
+
+        <!-- Win Screen -->
+        <div id="win-screen" class="screen">
+            <div class="win-animation">
+                <div class="flower large rotate"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+            </div>
+            <h2 class="win-title">🎉 Congratulations! 🎉</h2>
+            <p class="win-message">You've created a beautiful flower garden!</p>
+            
+            <div class="win-stats">
+                <div class="win-stat">
+                    <span class="win-stat-label">Time:</span>
+                    <span id="win-time" class="win-stat-value">0s</span>
+                </div>
+                <div class="win-stat">
+                    <span class="win-stat-label">Moves:</span>
+                    <span id="win-moves" class="win-stat-value">0</span>
+                </div>
+                <div class="win-stat">
+                    <span class="win-stat-label">Score:</span>
+                    <span id="win-score" class="win-stat-value">1000</span>
+                </div>
+            </div>
+            
+            <div class="win-buttons">
+                <button class="btn btn-primary" onclick="startGame(currentDifficulty)">Play Again</button>
+                <button class="btn btn-secondary" onclick="showScreen('main-screen')">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quit Confirmation Modal -->
+    <div id="quit-modal" class="modal">
+        <div class="modal-content">
+            <h3>Quit Game?</h3>
+            <p>Your progress will be lost if you quit now.</p>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="hideModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="confirmQuit()">Quit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
