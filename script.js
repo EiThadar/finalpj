@@ -141,7 +141,13 @@ function renderCards() {
             cardElement.textContent = card.value;
         }
         
+        // Add both click and touchstart event listeners for responsiveness on mobile
         cardElement.addEventListener('click', () => handleCardClick(card.id));
+        cardElement.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // prevent ghost click
+            handleCardClick(card.id);
+        });
+        
         gameGrid.appendChild(cardElement);
     });
 }
