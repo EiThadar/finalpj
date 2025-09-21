@@ -24,11 +24,11 @@ let gameState = {
 
 // Initialize the game when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add touch event listeners for better mobile experience
+    // Add touch event listeners for better mobile experience on buttons
     document.querySelectorAll('.btn').forEach(btn => {
         btn.addEventListener('touchstart', function(e) {
             this.style.transform = 'scale(0.95)';
-            e.preventDefault();
+            // Removed e.preventDefault() here to allow click events to fire
         });
         
         btn.addEventListener('touchend', function() {
