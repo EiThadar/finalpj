@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Flower Garden Memory Match</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <!-- Developer Info Banner -->
@@ -32,15 +32,15 @@
             <button class="btn btn-back" onclick="showScreen('main-screen')">← Back</button>
             <h2 class="title">Choose Difficulty</h2>
             <div class="difficulty-options">
-                <button class="difficulty-btn easy" onclick="startGame('easy')">
+                <button class="difficulty-btn easy btn" onclick="startGame('easy')">
                     <span class="flower-icon">🌼</span>
                     Easy (4×4)
                 </button>
-                <button class="difficulty-btn medium" onclick="startGame('medium')">
+                <button class="difficulty-btn medium btn" onclick="startGame('medium')">
                     <span class="flower-icon">🌺</span>
                     Medium (4×5)
                 </button>
-                <button class="difficulty-btn hard" onclick="startGame('hard')">
+                <button class="difficulty-btn hard btn" onclick="startGame('hard')">
                     <span class="flower-icon">🌹</span>
                     Hard (5×6)
                 </button>
@@ -127,7 +127,7 @@
             </div>
             
             <div class="win-buttons">
-                <button class="btn btn-primary" onclick="startGame(currentDifficulty)">Play Again</button>
+                <button class="btn btn-primary" onclick="startGame(gameState.currentDifficulty)">Play Again</button>
                 <button class="btn btn-secondary" onclick="showScreen('main-screen')">Main Menu</button>
             </div>
         </div>
